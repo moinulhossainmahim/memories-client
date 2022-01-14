@@ -31,6 +31,7 @@ const App = () => {
       </AppBar>
       <Grow in>
         <Grid
+          className={classes.mainContainer}
           container
           justifyContent='space-between'
           alignItems='stretch'
