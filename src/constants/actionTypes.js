@@ -1,0 +1,7 @@
+const CREATE = "CREATE";
+const FETCH_ALL = "FETCH_ALL";
+const DELETE = "DELETE";
+const UPDATE = "UPDATE";
+const LIKE_POST = "LIKE_POST";
+
+export { CREATE, FETCH_ALL, DELETE, UPDATE, LIKE_POST };
