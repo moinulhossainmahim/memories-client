@@ -7,6 +7,7 @@ import {
   Typography,
   Container,
 } from "@material-ui/core";
+import { GoogleLogin } from "react-google-login";
 import LockOutLinedIcon from "@material-ui/icons/LockOutlined";
 import useStyles from "./styles";
 import Input from "./Input";
