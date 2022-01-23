@@ -33,6 +33,22 @@ const Home = () => {
   const searchQuery = query.get("searchQuery");
   const dispatch = useDispatch();
 
+  const searchPost = () => {
+    if (search.trim() || tags) {
+      dispatch(getPostsBySearch({ search, tags: tags.join(",") }));
+      navigate(`/posts/search?searchQuery=${search}&tags=${tags.join(",")}`);
+    } else {
+      navigate("/");
+    }
+  };
+
+  const handleKeypress = (e) => {
+    console.log(e.keyCode);
+    if (e.keyCode === 13) {
+      searchPost();
+    }
+  };
+
   const handleAdd = (tag) => {
     setTags([...tags, tag]);
   };
@@ -41,27 +57,9 @@ const Home = () => {
     setTags(tags.filter((tag) => tag !== tagToDelete));
   };
 
-  const searchPost = () => {
-    if (search.trim()) {
-      dispatch(getPostsBySearch({ search, tags: tags.join(",") }));
-    } else {
-      navigate("/");
-    }
-  };
-
-  const handleKeypress = (e) => {
-    if (e.keycode === 13) {
-      searchPost();
-    }
-  };
-
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [currentId, dispatch]);
-
   return (
     <Grow in>
-      <Container maxWidth='xl'>
+      <Container maxWidth={false}>
         <Grid
           className={classes.gridContainer}
           container
@@ -83,7 +81,7 @@ const Home = () => {
                 variant='outlined'
                 label='Search Memories'
                 fullWidth
-                onKeyPress={(e) => handleKeypress(e)}
+                onKeyDown={(e) => handleKeypress(e)}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
@@ -106,7 +104,7 @@ const Home = () => {
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
             <Paper elevation={6}>
-              <Pagination />
+              <Pagination page={page} />
             </Paper>
           </Grid>
         </Grid>
