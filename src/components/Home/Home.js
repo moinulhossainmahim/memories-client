@@ -14,7 +14,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useStyles from "./styles";
 import Form from "../Form/Form";
 import Posts from "../Posts/Posts";
-import { getPosts, getPostsBySearch } from "../../actions/posts";
+import { getPostsBySearch } from "../../actions/posts";
 import Pagination from "../Pagination/Pagination";
 import ChipInput from "material-ui-chip-input";
 
@@ -43,7 +43,6 @@ const Home = () => {
   };
 
   const handleKeypress = (e) => {
-    console.log(e.keyCode);
     if (e.keyCode === 13) {
       searchPost();
     }
@@ -103,9 +102,11 @@ const Home = () => {
               </Button>
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
-            <Paper elevation={6}>
-              <Pagination page={page} />
-            </Paper>
+            {!searchQuery && !tags.length && (
+              <Paper elevation={6} className={classes.pagination}>
+                <Pagination page={page} />
+              </Paper>
+            )}
           </Grid>
         </Grid>
       </Container>

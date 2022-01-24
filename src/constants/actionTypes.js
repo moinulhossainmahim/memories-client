@@ -6,6 +6,8 @@ const LIKE_POST = "LIKE_POST";
 const AUTH = "AUTH";
 const LOGOUT = "LOGOUT";
 const FETCH_BY_SEARCH = "FETCH_BY_SEARCH";
+const START_LOADING = "START_LOADING";
+const END_LOADING = "END_LOADING";
 
 export {
   CREATE,
@@ -16,4 +18,6 @@ export {
   AUTH,
   LOGOUT,
   FETCH_BY_SEARCH,
+  START_LOADING,
+  END_LOADING,
 };
