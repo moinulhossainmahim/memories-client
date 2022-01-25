@@ -11,6 +11,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 import useStyles from "./styles.js";
 import { getPost, getPostsBySearch } from "../../actions/posts";
+import CommentSection from "./CommentSection.js";
 
 const PostDetails = () => {
   const dispatch = useDispatch();
@@ -73,9 +74,7 @@ const PostDetails = () => {
             <strong>Realtime Chat - coming soon!</strong>
           </Typography>
           <Divider style={{ margin: "20px 0" }} />
-          <Typography variant='body1'>
-            <strong>Comments - coming soon!</strong>
-          </Typography>
+          <CommentSection post={post} />
           <Divider style={{ margin: "20px 0" }} />
         </div>
         <div className={classes.imageSection}>
@@ -89,7 +88,7 @@ const PostDetails = () => {
           />
         </div>
       </div>
-      {recommendedPosts.length && (
+      {recommendedPosts.length > 0 && (
         <div className={classes.section}>
           <Typography gutterBottom variant='h5'>
             You might also like:
