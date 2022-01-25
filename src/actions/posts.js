@@ -9,6 +9,7 @@ import {
   END_LOADING,
   START_LOADING,
   FETCH_POST,
+  COMMENT,
 } from "../constants/actionTypes";
 
 export const getPost = (id) => async (dispatch) => {
@@ -74,6 +75,14 @@ export const deletePost = (id) => async (dispatch) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const commentPost = (value, id) => async (dispatch) => {
+  try {
+    const { data } = await api.comment(value, id);
+    dispatch({ type: COMMENT, payload: data });
+    return data.comments;
+  } catch (error) {}
 };
 
 export const likePost = (id) => async (dispatch) => {

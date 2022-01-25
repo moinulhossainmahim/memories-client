@@ -9,6 +9,7 @@ const FETCH_BY_SEARCH = "FETCH_BY_SEARCH";
 const START_LOADING = "START_LOADING";
 const END_LOADING = "END_LOADING";
 const FETCH_POST = "FETCH_POST";
+const COMMENT = "COMMENT";
 
 export {
   CREATE,
@@ -22,4 +23,5 @@ export {
   START_LOADING,
   END_LOADING,
   FETCH_POST,
+  COMMENT,
 };

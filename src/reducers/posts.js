@@ -8,6 +8,7 @@ import {
   START_LOADING,
   END_LOADING,
   FETCH_POST,
+  COMMENT,
 } from "../constants/actionTypes";
 
 const posts = (state = { isLoading: true, posts: [] }, action) => {
@@ -27,6 +28,13 @@ const posts = (state = { isLoading: true, posts: [] }, action) => {
       return { ...state, posts: [...state.posts, action.payload] };
     case UPDATE:
     case LIKE_POST:
+      return {
+        ...state,
+        posts: state.posts.map((post) =>
+          post._id === action.payload._id ? action.payload : post
+        ),
+      };
+    case COMMENT:
       return {
         ...state,
         posts: state.posts.map((post) =>
