@@ -14,9 +14,14 @@ const Navbar = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  const token = user?.token;
+
+  const logout = () => {
+    dispatch({ type: LOGOUT });
+    history("/auth");
+  };
 
   useEffect(() => {
-    const token = user?.token;
     if (token) {
       const decodeToken = decode(token);
       if (decodeToken.exp * 1000 < new Date().getTime()) {
@@ -24,13 +29,7 @@ const Navbar = () => {
       }
     }
     setUser(JSON.parse(localStorage.getItem("profile")));
-  }, [location]);
-
-  const logout = () => {
-    dispatch({ type: LOGOUT });
-    history("/");
-    setUser(null);
-  };
+  }, [location, token]);
 
   return (
     <AppBar className={classes.appBar} position='static' color='inherit'>

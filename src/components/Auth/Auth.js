@@ -41,6 +41,7 @@ const Auth = () => {
       dispatch(signin(formData, history));
     }
   };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };

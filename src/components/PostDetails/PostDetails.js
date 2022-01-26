@@ -22,7 +22,7 @@ const PostDetails = () => {
 
   useEffect(() => {
     dispatch(getPost(id));
-  }, [id]);
+  }, [id, dispatch]);
 
   useEffect(() => {
     if (post) {
@@ -30,7 +30,7 @@ const PostDetails = () => {
         getPostsBySearch({ search: "none", tags: post?.tags.join(",") })
       );
     }
-  }, [post]);
+  }, [post, dispatch]);
 
   if (!post) return null;
   if (isLoading) {
@@ -115,7 +115,7 @@ const PostDetails = () => {
                     <Typography gutterBottom variant='subtitle2'>
                       Likes: {likes.length}
                     </Typography>
-                    <img src={selectedFile} width='200px' />
+                    <img src={selectedFile} width='200px' alt='profile' />
                   </div>
                 );
               }
