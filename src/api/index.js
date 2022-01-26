@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://add-memories-app.herokuapp.com/posts",
+  baseURL: "https://add-memories-app.herokuapp.com",
 });
 
 // const url = "https://add-memories-app.herokuapp.com/posts";
