@@ -29,6 +29,7 @@ const Navbar = () => {
       }
     }
     setUser(JSON.parse(localStorage.getItem("profile")));
+    // eslint-disable-next-line
   }, [location, token]);
 
   return (
