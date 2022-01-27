@@ -1,10 +1,6 @@
 import React, { useEffect } from "react";
-import {
-  Paper,
-  Typography,
-  CircularProgress,
-  Divider,
-} from "@material-ui/core";
+import { Paper, Typography, Divider, Box } from "@material-ui/core";
+import { Skeleton } from "@material-ui/lab";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { useParams, useNavigate } from "react-router-dom";
@@ -35,9 +31,11 @@ const PostDetails = () => {
   if (!post) return null;
   if (isLoading) {
     return (
-      <Paper elevation={6} className={classes.loadingPaper}>
-        <CircularProgress size='7em' />
-      </Paper>
+      <Box my={5}>
+        <Skeleton variant='rect' height={250} width='60%' />
+        <Skeleton width='60%' height={30} />
+        <Skeleton width='55%' height={30} />
+      </Box>
     );
   }
 
