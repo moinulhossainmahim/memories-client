@@ -34,7 +34,7 @@ const PostDetails = () => {
       <Box my={5}>
         <Skeleton variant='rect' height={250} width='60%' />
         <Skeleton width='60%' height={30} />
-        <Skeleton width='55%' height={30} />
+        <Skeleton width='40%' height={30} />
       </Box>
     );
   }
