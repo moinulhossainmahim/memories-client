@@ -4,8 +4,6 @@ const API = axios.create({
   baseURL: "https://add-memories-app.herokuapp.com",
 });
 
-// const url = "https://add-memories-app.herokuapp.com/posts";
-
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("profile")) {
     req.headers.Authorization = `Bearer ${
