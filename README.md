@@ -1,6 +1,6 @@
 ### MERN Memories
 
-[LIVE DEMO](https://react-add-memories.netlify.app)
+[LIVE DEMO](https://add-memories-mern.netlify.app)
 
 This is a repository of Memories App.
 
