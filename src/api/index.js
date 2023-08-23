@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://add-memories-app.herokuapp.com",
+  baseURL: "https://memories-server-gamma.vercel.app",
 });
 
 API.interceptors.request.use((req) => {
